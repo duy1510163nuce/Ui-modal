@@ -14,8 +14,8 @@ export const WrapModal = styled.div`
     position:absolute;
     background-color:#91C5B6;
     top:3%;
-    left:8%;
-    right:8%; 
+    width:82%;
+    margin:0 9%;
     border-radius: 12px;
     
 `;
@@ -76,7 +76,7 @@ export const WrapContentModal = styled.div`
     margin: auto;
   }
 `;
-export const ContentItemStyled = styled.div`
+export const WrapItemModal = styled.div`
   width: 100%;
   border-radius: 10px;
   display: flex;
@@ -203,23 +203,27 @@ export const ButtonModalStyled = styled.button`
   border-radius: 24px;
   height: 32px;
   margin-left: 17px;
+  padding: 0 16px
+  font-size:16px;
+  font-weight:500;
   @media only screen and (max-width: 400px) {
     // font-size: 7px;
+    font-size: 12px;
   }
 `;
-export const TextButtonStyled = styled.p`
-    padding: 0 16px
-    font-size:16px;
-    font-weight:500;
-    @media only screen and (max-width: 821px)  {
-    font-size: 12px;
-  }
-   @media only screen and (max-width: 400px)  {
-    font-size: 12px;
-    padding:0 10px;
-  }
+// export const TextButtonStyled = styled.p`
+//     padding: 0 16px
+//     font-size:16px;
+//     font-weight:500;
+//     @media only screen and (max-width: 821px)  {
+//     font-size: 12px;
+//   }
+//    @media only screen and (max-width: 400px)  {
+//     font-size: 12px;
+//     padding:0 10px;
+//   }
     
-`;
+// `;
 
 export const WrapAfterClickDetail = styled.div`
   width: 60%;
@@ -245,7 +249,7 @@ export const TitleTextStyled = styled.p`
   line-height: 16px;
   font-weight: 500;
   color: #fff;
-   @media only screen and (max-width: 400px) {
+  @media only screen and (max-width: 400px) {
   }
 `;
 
