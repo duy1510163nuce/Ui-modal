@@ -1,6 +1,6 @@
-import { ButtonModalStyled } from "../styled";
 import { SwapRightOutlined } from "@ant-design/icons";
-export const ButtonModal = () => {
+import { ButtonModalStyled } from "./styled";
+export const Button = () => {
   return (
     <ButtonModalStyled>
         詳しくみる <SwapRightOutlined />

@@ -1,9 +1,10 @@
 import Image from "next/image";
-import React, { ReactElement } from "react";
-import { ModalWarning } from "../../../public/images/modal_warning";
+import React from "react";
+import { ModalWarning } from "../../../../public/images/modal_warning";
+import { TItemModal } from "./types";
+import { Button } from "../Button/Button";
 import {
-  ButtonSolution,
-  WrapItemModal,
+  ButtonSolutionStyled,
   DetailItemStyled,
   NameStyled,
   NumberStyled,
@@ -15,72 +16,72 @@ import {
   UserItemStyled,
   WarningDescriptionStyled,
   WarningTitleStyled,
-  WrapAfterClickDetail,
+  WrapAfterClickDetailStyled,
   WrapDetailStyled,
-  WrapImageSolution,
-  WrapMoney,
-} from "../styled";
-import { TItemModal } from "../types";
-import { ButtonModal } from "./button";
-
+  WrapImageSolutionStyled,
+  WrapItemModalStyled,
+  WrapMoneyStyled,
+} from "./styled";
 
 const iconWhenChildBorn = "/images/imageDie.png";
 const nameWhenChildBorn = "亡くなった時";
 const rules = "ひと月あたり";
 const warningTitle = "保障の対象外です";
-const labels = ["出産育児一時金", "出産手当金","育児休業給付金"]
-export default function ItemWhenChildBorn(props: TItemModal) {
-  const { isActive,  money } = props;
+// const labels = ["出産育児一時金", "出産手当金", "育児休業給付金"];
+export function WhenChildBorn(props: TItemModal) {
+  const { isActive,labels, money } = props;
 
-  const ItemWhenChildBornActive = () => {
+  const WhenChildBornActive = () => {
     return (
-      <WrapItemModal>
+      <WrapItemModalStyled>
         <UserItemStyled>
-          <WrapImageSolution>
+          <WrapImageSolutionStyled>
             <Image
               alt="header-girl"
               src={iconWhenChildBorn}
               width={48}
               height={48}
             />
-          </WrapImageSolution>
+          </WrapImageSolutionStyled>
           <NameStyled>{nameWhenChildBorn}</NameStyled>
         </UserItemStyled>
 
         <DetailItemStyled primary>
           <SolutionStyled>
             {labels?.map((label, index) => {
-              return <ButtonSolution key={index}>{label}</ButtonSolution>;
+              return (
+                <ButtonSolutionStyled key={index}>{label}</ButtonSolutionStyled>
+              );
             })}
           </SolutionStyled>
           <TypeOfContractStyled>
             <TimeStyled>{rules}</TimeStyled>
-            <WrapMoney>
+            <WrapMoneyStyled>
               <PriceStyled>最大</PriceStyled>
               <NumberStyled>{money}</NumberStyled>
               <PriceStyled>万円</PriceStyled>
-            </WrapMoney>
-            <ButtonModal />
+            </WrapMoneyStyled>
+            <Button />
           </TypeOfContractStyled>
         </DetailItemStyled>
-      </WrapItemModal>
+      </WrapItemModalStyled>
     );
   };
-  const ItemWhenChildBornNotActive = () => {
+  const WhenChildBornNotActive = () => {
     return (
-      <WrapItemModal>
+      <WrapItemModalStyled>
         <UserItemStyled>
-          <WrapImageSolution>
+          <WrapImageSolutionStyled>
             <Image
               alt="header-girl"
               src={iconWhenChildBorn}
               width={48}
               height={48}
             />
-          </WrapImageSolution>
+          </WrapImageSolutionStyled>
           <NameStyled>{nameWhenChildBorn}</NameStyled>
         </UserItemStyled>
-        <WrapAfterClickDetail>
+        <WrapAfterClickDetailStyled>
           <WrapDetailStyled>
             <WarningTitleStyled>
               <ModalWarning />
@@ -94,14 +95,14 @@ export default function ItemWhenChildBorn(props: TItemModal) {
               より正確な情報は、日本年金機構や加入している協会けんぽ又は健康保険組合等でご確認下さい。
             </WarningDescriptionStyled>
           </WrapDetailStyled>
-        </WrapAfterClickDetail>
-      </WrapItemModal>
+        </WrapAfterClickDetailStyled>
+      </WrapItemModalStyled>
     );
   };
 
   return (
     <div>
-      {isActive ? <ItemWhenChildBornActive /> : <ItemWhenChildBornNotActive />}
+      {isActive ? <WhenChildBornActive /> : <WhenChildBornNotActive />}
     </div>
   );
 }

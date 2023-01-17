@@ -1,9 +1,10 @@
 import Image from "next/image";
 import React from "react";
-import { ModalWarning } from "../../../public/images/modal_warning";
+import { ModalWarning } from "../../../../public/images/modal_warning";
+import { TItemModal } from "./types";
+import { Button } from "../Button/Button";
 import {
-  ButtonSolution,
-  WrapItemModal,
+  ButtonSolutionStyled,
   DetailItemStyled,
   NameStyled,
   NumberStyled,
@@ -15,72 +16,70 @@ import {
   UserItemStyled,
   WarningDescriptionStyled,
   WarningTitleStyled,
-  WrapAfterClickDetail,
+  WrapAfterClickDetailStyled,
   WrapDetailStyled,
-  WrapImageSolution,
-  WrapMoney,
-} from "../styled";
-import { TItemModal } from "../types";
-import { ButtonModal } from "./button";
+  WrapImageSolutionStyled,
+  WrapItemModalStyled,
+  WrapMoneyStyled,
+} from "./styled";
 
-
-const iconWhenHeNotWork = "/images/work.png";
-const nameWhenHeNotWork = "働けなくなった時";
-const rules = "ひと月あたり";
+const iconWhenMedicalHigh = "/images/medicalExpenses.png";
+const nameWhenMedicalHigh = "病気やケガで \n 医療費が高額になった時";
+const rules = "ひと月あたり自己負担上限額";
 const warningTitle = "保障の対象外です";
-const labels = ["傷病手当金"]
-export default function ItemWhenHeNotWork(props: TItemModal) {
-  const { isActive,  money } = props;
+export function WhenMedicalHigh(props: TItemModal) {
+  const { isActive,labels, money } = props;
 
-  const ItemWhenHeNotWorkActive = () => {
+  const WhenMedicalHighActive = () => {
     return (
-      <WrapItemModal>
+      <WrapItemModalStyled>
         <UserItemStyled>
-          <WrapImageSolution>
+          <WrapImageSolutionStyled>
             <Image
               alt="header-girl"
-              src={iconWhenHeNotWork}
+              src={iconWhenMedicalHigh}
               width={48}
               height={48}
             />
-          </WrapImageSolution>
-          <NameStyled>{nameWhenHeNotWork}</NameStyled>
+          </WrapImageSolutionStyled>
+          <NameStyled>{nameWhenMedicalHigh}</NameStyled>
         </UserItemStyled>
 
         <DetailItemStyled primary>
           <SolutionStyled>
             {labels?.map((label, index) => {
-              return <ButtonSolution key={index}>{label}</ButtonSolution>;
+              return (
+                <ButtonSolutionStyled key={index}>{label}</ButtonSolutionStyled>
+              );
             })}
           </SolutionStyled>
           <TypeOfContractStyled>
             <TimeStyled>{rules}</TimeStyled>
-            <WrapMoney>
-              {/* <PriceStyled>{item.level}</PriceStyled> */}
+            <WrapMoneyStyled>
               <NumberStyled>{money}</NumberStyled>
               <PriceStyled>万円</PriceStyled>
-            </WrapMoney>
-            <ButtonModal />
+            </WrapMoneyStyled>
+            <Button />
           </TypeOfContractStyled>
         </DetailItemStyled>
-      </WrapItemModal>
+      </WrapItemModalStyled>
     );
   };
-  const ItemWhenHeNotWorkNotActive = () => {
+  const WhenMedicalHighNotActive = () => {
     return (
-      <WrapItemModal>
+      <WrapItemModalStyled>
         <UserItemStyled>
-          <WrapImageSolution>
+          <WrapImageSolutionStyled>
             <Image
               alt="header-girl"
-              src={iconWhenHeNotWork}
+              src={iconWhenMedicalHigh}
               width={48}
               height={48}
             />
-          </WrapImageSolution>
-          <NameStyled>{nameWhenHeNotWork}</NameStyled>
+          </WrapImageSolutionStyled>
+          <NameStyled>{nameWhenMedicalHigh}</NameStyled>
         </UserItemStyled>
-        <WrapAfterClickDetail>
+        <WrapAfterClickDetailStyled>
           <WrapDetailStyled>
             <WarningTitleStyled>
               <ModalWarning />
@@ -94,14 +93,14 @@ export default function ItemWhenHeNotWork(props: TItemModal) {
               より正確な情報は、日本年金機構や加入している協会けんぽ又は健康保険組合等でご確認下さい。
             </WarningDescriptionStyled>
           </WrapDetailStyled>
-        </WrapAfterClickDetail>
-      </WrapItemModal>
+        </WrapAfterClickDetailStyled>
+      </WrapItemModalStyled>
     );
   };
 
   return (
     <div>
-      {isActive ? <ItemWhenHeNotWorkActive /> : <ItemWhenHeNotWorkNotActive />}
+      {isActive ? <WhenMedicalHighActive /> : <WhenMedicalHighNotActive />}
     </div>
   );
 }

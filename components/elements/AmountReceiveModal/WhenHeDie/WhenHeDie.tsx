@@ -1,9 +1,10 @@
 import Image from "next/image";
 import React, { ReactElement } from "react";
-import { ModalWarning } from "../../../public/images/modal_warning";
+import { ModalWarning } from "../../../../public/images/modal_warning";
+import { TItemModal } from "./types";
+import { Button } from "../Button/Button";
 import {
-  ButtonSolution,
-  WrapItemModal,
+  ButtonSolutionStyled,
   DetailItemStyled,
   NameStyled,
   NumberStyled,
@@ -15,73 +16,74 @@ import {
   UserItemStyled,
   WarningDescriptionStyled,
   WarningTitleStyled,
-  WrapAfterClickDetail,
+  WrapAfterClickDetailStyled,
   WrapDetailStyled,
-  WrapImageSolution,
-  WrapMoney,
-} from "../styled";
-import { TItemModal } from "../types";
-import { ButtonModal } from "./button";
-
+  WrapImageSolutionStyled,
+  WrapItemModalStyled,
+  WrapMoneyStyled,
+} from "./styled";
 
 const iconWhenHeDie = "/images/imageDie.png";
 const nameWhenHeDie = "亡くなった時";
 const rules = "ひと月あたり";
 const warningTitle = "保障の対象外です";
-const labels = ["遺族基礎年金", "遺族厚生年金"];
+// const labels = ["遺族基礎年金", "遺族厚生年金"];
 
-export default function ItemWhenHeDie(props: TItemModal) {
-  const { isActive, money } = props;
+export function WhenHeDie(props: TItemModal) {
+  const { isActive, labels, money } = props;
+  // console.log(labels);
 
-  const ItemWhenHeDieActive = () => {
+  const WhenHeDieActive = () => {
     return (
-      <WrapItemModal>
+      <WrapItemModalStyled>
         <UserItemStyled>
-          <WrapImageSolution>
+          <WrapImageSolutionStyled>
             <Image
               alt="header-girl"
               src={iconWhenHeDie}
               width={48}
               height={48}
             />
-          </WrapImageSolution>
+          </WrapImageSolutionStyled>
           <NameStyled>{nameWhenHeDie}</NameStyled>
         </UserItemStyled>
 
         <DetailItemStyled primary>
           <SolutionStyled>
             {labels?.map((label, index) => {
-              return <ButtonSolution key={index}>{label}</ButtonSolution>;
+              return (
+                <ButtonSolutionStyled key={index}>{label}</ButtonSolutionStyled>
+              );
             })}
           </SolutionStyled>
           <TypeOfContractStyled>
             <TimeStyled>{rules}</TimeStyled>
-            <WrapMoney>
+            <WrapMoneyStyled>
               {/* <PriceStyled>{item.level}</PriceStyled> */}
               <NumberStyled>{money}</NumberStyled>
               <PriceStyled>万円</PriceStyled>
-            </WrapMoney>
-            <ButtonModal />
+            </WrapMoneyStyled>
+            <Button />
           </TypeOfContractStyled>
         </DetailItemStyled>
-      </WrapItemModal>
+      </WrapItemModalStyled>
     );
   };
-  const ItemWhenHeDieNotActive = () => {
+  const WhenHeDieNotActive = () => {
     return (
-      <WrapItemModal>
+      <WrapItemModalStyled>
         <UserItemStyled>
-          <WrapImageSolution>
+          <WrapImageSolutionStyled>
             <Image
               alt="header-girl"
               src={iconWhenHeDie}
               width={48}
               height={48}
             />
-          </WrapImageSolution>
+          </WrapImageSolutionStyled>
           <NameStyled>{nameWhenHeDie}</NameStyled>
         </UserItemStyled>
-        <WrapAfterClickDetail>
+        <WrapAfterClickDetailStyled>
           <WrapDetailStyled>
             <WarningTitleStyled>
               <ModalWarning />
@@ -95,12 +97,10 @@ export default function ItemWhenHeDie(props: TItemModal) {
               より正確な情報は、日本年金機構や加入している協会けんぽ又は健康保険組合等でご確認下さい。
             </WarningDescriptionStyled>
           </WrapDetailStyled>
-        </WrapAfterClickDetail>
-      </WrapItemModal>
+        </WrapAfterClickDetailStyled>
+      </WrapItemModalStyled>
     );
   };
 
-  return (
-    <div>{isActive ? <ItemWhenHeDieActive /> : <ItemWhenHeDieNotActive />}</div>
-  );
+  return <div>{isActive ? <WhenHeDieActive /> : <WhenHeDieNotActive />}</div>;
 }

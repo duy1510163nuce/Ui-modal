@@ -1,14 +1,5 @@
-
-// import ModalForm from "../components/modules/modal";
-
-import ModalForm from "../components/modalForm";
-
-// const Modal = () => {
-//   return (
-//     <ModalForm/>
-//   );
-// };
+import { ModalAmountReceive } from "./elements/AmountReceiveModal";
 
 export default function Home(): JSX.Element {
-  return <ModalForm />
+  return <ModalAmountReceive />;
 }
