@@ -1,9 +1,10 @@
-import { TMoneyPlanRepository } from "../../../../pages/elements/AmountReceiveModal/types";
+import { TMoneyPlanRepositoryGetResponse } from "../../../../../repositories/ServiceAmountReceiveModal/types";
 
-export const convertLabels = (data: TMoneyPlanRepository) => {
-  if (data?.whenHeDie.labels) {
+
+export const convertLabels = (data: TMoneyPlanRepositoryGetResponse|undefined) => {
+  if (data?.whenHeDie?.labels) {
     const labelsWhenHeDie = data?.whenHeDie.labels;
-    labelsWhenHeDie.map((label, index) => {
+    labelsWhenHeDie.map((label:string, index:number) => {
       if (label === "SurvivorsBasicPension") {
         return (labelsWhenHeDie[index] = "遺族基礎年金");
       }
@@ -12,25 +13,25 @@ export const convertLabels = (data: TMoneyPlanRepository) => {
       }
     });
   }
-  if (data?.whenMedicalHigh.labels) {
+  if (data?.whenMedicalHigh?.labels) {
     const labelsWhenMedicalHigh = data?.whenMedicalHigh.labels;
-    labelsWhenMedicalHigh.map((label, index) => {
+    labelsWhenMedicalHigh.map((label:string, index:number) => {
       if (label === "HighMedicalExpensesSystem") {
         return (labelsWhenMedicalHigh[index] = "高額療養費制度");
       }
     });
   }
-  if (data?.whenHeNotWork.labels) {
+  if (data?.whenHeNotWork?.labels) {
     const labelsWhenHeNotWork = data?.whenHeNotWork.labels;
-    labelsWhenHeNotWork.map((label, index) => {
+    labelsWhenHeNotWork.map((label:string, index:number) => {
       if (label === "InjuryAndSicknessAllowance") {
         return (labelsWhenHeNotWork[index] = "傷病手当金");
       }
     });
   }
-  if (data?.whenInTrouble.labels) {
+  if (data?.whenInTrouble?.labels) {
     const labelsWhenInTrouble = data?.whenInTrouble.labels;
-    labelsWhenInTrouble.map((label, index) => {
+    labelsWhenInTrouble.map((label:string, index:number) => {
       if (label === "disabilityBasicPension") {
         return (labelsWhenInTrouble[index] = "障害基礎年金");
       }
@@ -39,9 +40,9 @@ export const convertLabels = (data: TMoneyPlanRepository) => {
       }
     });
   }
-  if (data?.whenChildBorn.labels) {
+  if (data?.whenChildBorn?.labels) {
     const labelsWhenChildBorn = data?.whenChildBorn.labels;
-    labelsWhenChildBorn.map((label, index) => {
+    labelsWhenChildBorn.map((label:string, index:number) => {
       if (label === "ChildbirthAndChildcareLump-SumGrant") {
         return (labelsWhenChildBorn[index] = "出産育児一時金");
       }

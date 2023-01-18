@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const WrapContentModalStyled = styled.div`
+export const ContentModalStyled = styled.div`
   width: 94%;
   margin: auto;
   background-color: #fff;

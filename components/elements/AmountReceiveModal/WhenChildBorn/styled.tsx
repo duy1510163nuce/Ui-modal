@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 
-export const WrapItemModalStyled = styled.div`
+export const ItemModalStyled = styled.div`
   width: 100%;
   border-radius: 10px;
   display: flex;
@@ -23,7 +23,7 @@ export const UserItemStyled = styled.div`
     padding: 10px 0;
   }
 `;
-export const WrapImageSolutionStyled = styled.div`
+export const ImageSolutionStyled = styled.div`
   margin: 0 12px 0 16px;
   @media only screen and (max-width: 400px) {
     // margin-left: 25%;
@@ -95,7 +95,7 @@ export const TimeStyled = styled.p`
     font-size: 8px;
   }
 `;
-export const WrapMoneyStyled = styled.div`
+export const MoneyStyled = styled.div`
   display: flex;
   align-items: flex-end;
 `;
@@ -124,7 +124,7 @@ export const NumberStyled = styled.p`
 
 
 
-export const WrapAfterClickDetailStyled = styled.div`
+export const AfterClickDetailStyled = styled.div`
   width: 60%;
   background-color: #91b3a9;
   display: flex;
@@ -134,7 +134,7 @@ export const WrapAfterClickDetailStyled = styled.div`
     white-space: nowrap;
   }
 `;
-export const WrapDetailStyled = styled.div`
+export const DetailStyled = styled.div`
   padding: 13px 16px;
 `;
 

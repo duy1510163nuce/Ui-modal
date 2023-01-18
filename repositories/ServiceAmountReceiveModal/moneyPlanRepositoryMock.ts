@@ -1,4 +1,5 @@
-export const dataMock = {
+import { TMoneyPlanRepositoryGetResponse } from './types';
+export const dataMock:TMoneyPlanRepositoryGetResponse = {
   whenHeDie: {
     isActive: false,
     labels: ["SurvivorsBasicPension", "SurvivorsWelfarePension"],

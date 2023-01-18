@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { ModalWarning } from "../../../../public/images/modal_warning";
 import { TItemModal } from "./types";
-import { Button } from "../Button/Button";
+import { Button } from "../Button/index";
 import {
   ButtonSolutionStyled,
   DetailItemStyled,
@@ -16,33 +16,33 @@ import {
   UserItemStyled,
   WarningDescriptionStyled,
   WarningTitleStyled,
-  WrapAfterClickDetailStyled,
-  WrapDetailStyled,
-  WrapImageSolutionStyled,
-  WrapItemModalStyled,
-  WrapMoneyStyled,
+  AfterClickDetailStyled,
+  DetailStyled,
+  ImageSolutionStyled,
+  ItemModalStyled,
+  MoneyStyled,
 } from "./styled";
 
-const iconWhenMedicalHigh = "/images/medicalExpenses.png";
-const nameWhenMedicalHigh = "病気やケガで \n 医療費が高額になった時";
-const rules = "ひと月あたり自己負担上限額";
+const iconWhenChildBorn = "/images/imageDie.png";
+const nameWhenChildBorn = "亡くなった時";
+const rules = "ひと月あたり";
 const warningTitle = "保障の対象外です";
-export function WhenMedicalHigh(props: TItemModal) {
+export function WhenChildBorn(props: TItemModal) {
   const { isActive,labels, money } = props;
 
-  const WhenMedicalHighActive = () => {
+  const WhenChildBornActive = () => {
     return (
-      <WrapItemModalStyled>
+      <ItemModalStyled>
         <UserItemStyled>
-          <WrapImageSolutionStyled>
+          <ImageSolutionStyled>
             <Image
               alt="header-girl"
-              src={iconWhenMedicalHigh}
+              src={iconWhenChildBorn}
               width={48}
               height={48}
             />
-          </WrapImageSolutionStyled>
-          <NameStyled>{nameWhenMedicalHigh}</NameStyled>
+          </ImageSolutionStyled>
+          <NameStyled>{nameWhenChildBorn}</NameStyled>
         </UserItemStyled>
 
         <DetailItemStyled primary>
@@ -55,32 +55,33 @@ export function WhenMedicalHigh(props: TItemModal) {
           </SolutionStyled>
           <TypeOfContractStyled>
             <TimeStyled>{rules}</TimeStyled>
-            <WrapMoneyStyled>
+            <MoneyStyled>
+              <PriceStyled>最大</PriceStyled>
               <NumberStyled>{money}</NumberStyled>
               <PriceStyled>万円</PriceStyled>
-            </WrapMoneyStyled>
+            </MoneyStyled>
             <Button />
           </TypeOfContractStyled>
         </DetailItemStyled>
-      </WrapItemModalStyled>
+      </ItemModalStyled>
     );
   };
-  const WhenMedicalHighNotActive = () => {
+  const WhenChildBornNotActive = () => {
     return (
-      <WrapItemModalStyled>
+      <ItemModalStyled>
         <UserItemStyled>
-          <WrapImageSolutionStyled>
+          <ImageSolutionStyled>
             <Image
               alt="header-girl"
-              src={iconWhenMedicalHigh}
+              src={iconWhenChildBorn}
               width={48}
               height={48}
             />
-          </WrapImageSolutionStyled>
-          <NameStyled>{nameWhenMedicalHigh}</NameStyled>
+          </ImageSolutionStyled>
+          <NameStyled>{nameWhenChildBorn}</NameStyled>
         </UserItemStyled>
-        <WrapAfterClickDetailStyled>
-          <WrapDetailStyled>
+        <AfterClickDetailStyled>
+          <DetailStyled>
             <WarningTitleStyled>
               <ModalWarning />
               <TitleTextStyled>{warningTitle}</TitleTextStyled>
@@ -92,15 +93,15 @@ export function WhenMedicalHigh(props: TItemModal) {
               対象になる場合もあります。<br></br>
               より正確な情報は、日本年金機構や加入している協会けんぽ又は健康保険組合等でご確認下さい。
             </WarningDescriptionStyled>
-          </WrapDetailStyled>
-        </WrapAfterClickDetailStyled>
-      </WrapItemModalStyled>
+          </DetailStyled>
+        </AfterClickDetailStyled>
+      </ItemModalStyled>
     );
   };
 
   return (
     <div>
-      {isActive ? <WhenMedicalHighActive /> : <WhenMedicalHighNotActive />}
+      {isActive ? <WhenChildBornActive /> : <WhenChildBornNotActive />}
     </div>
   );
 }

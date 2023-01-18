@@ -1,58 +1,57 @@
-import React, { FC, useEffect, useMemo } from "react";
-import { convertLabels } from "./utils";
-import { WhenChildBorn } from "../WhenChildBorn/WhenChildBorn";
-import { WhenHeDie } from "../WhenHeDie/WhenHeDie";
-import { WhenHeNotWork } from "../WhenHeNotWork/WhenHeNotWork";
-import { WhenInTrouble } from "../WhenInTrouble/WhenInTrouble";
-import { WhenMedicalHigh } from "../WhenMedicalHigh/WhenMedicalHigh";
-import { WrapContentModalStyled } from "./styled";
+import React, { FC } from "react";
+import { TMoneyPlanRepositoryGetResponse } from "../../../../repositories/ServiceAmountReceiveModal/types";
+
+import { WhenChildBorn } from "../WhenChildBorn";
+import { WhenHeDie } from "../WhenHeDie";
+import { WhenHeNotWork } from "../WhenHeNotWork";
+import { WhenInTrouble } from "../WhenInTrouble";
+import { WhenMedicalHigh } from "../WhenMedicalHigh";
+import { ContentModalStyled } from "./styled";
 import { TContentAmountReceiveProps } from "./types";
 
-export const ContentAmountReceiveModal: FC<TContentAmountReceiveProps> = (
-  props: TContentAmountReceiveProps
+export const ContentAmountReceiveModal: FC<TMoneyPlanRepositoryGetResponse> = (
+  props: TMoneyPlanRepositoryGetResponse
 ): JSX.Element => {
-  const { data } = props;
-  useMemo(() => {
-    convertLabels(data);
-  }, [data]);
+  const { whenHeDie,whenChildBorn,whenHeNotWork,whenInTrouble,whenMedicalHigh } = props;
+ 
 
   return (
-    <WrapContentModalStyled>
-      {data?.whenHeDie && (
+    <ContentModalStyled>
+      {whenHeDie && (
         <WhenHeDie
-          money={data.whenHeDie.money}
-          labels={data.whenHeDie.labels}
-          isActive={data.whenHeDie.isActive}
+          money={whenHeDie.money}
+          labels={whenHeDie.labels}
+          isActive={whenHeDie.isActive}
         />
       )}
-      {data?.whenMedicalHigh && (
+      {whenMedicalHigh && (
         <WhenMedicalHigh
-          money={data.whenMedicalHigh.money}
-          labels={data.whenMedicalHigh.labels}
-          isActive={data.whenMedicalHigh.isActive}
+          money={whenMedicalHigh.money}
+          labels={whenMedicalHigh.labels}
+          isActive={whenMedicalHigh.isActive}
         />
       )}
-      {data?.whenHeNotWork && (
+      {whenHeNotWork && (
         <WhenHeNotWork
-          money={data.whenHeNotWork.money}
-          labels={data.whenHeNotWork.labels}
-          isActive={data.whenHeNotWork.isActive}
+          money={whenHeNotWork.money}
+          labels={whenHeNotWork.labels}
+          isActive={whenHeNotWork.isActive}
         />
       )}
-      {data?.whenInTrouble && (
+      {whenInTrouble && (
         <WhenInTrouble
-          money={data.whenInTrouble.money}
-          labels={data.whenInTrouble.labels}
-          isActive={data.whenInTrouble.isActive}
+          money={whenInTrouble.money}
+          labels={whenInTrouble.labels}
+          isActive={whenInTrouble.isActive}
         />
       )}
-      {data?.whenChildBorn && (
+      {whenChildBorn && (
         <WhenChildBorn
-          money={data.whenChildBorn.money}
-          labels={data.whenChildBorn.labels}
-          isActive={data.whenChildBorn.isActive}
+          money={whenChildBorn.money}
+          labels={whenChildBorn.labels}
+          isActive={whenChildBorn.isActive}
         />
       )}
-    </WrapContentModalStyled>
+    </ContentModalStyled>
   );
 };

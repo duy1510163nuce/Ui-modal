@@ -1,5 +1,5 @@
-import { ModalAmountReceive } from "./elements/AmountReceiveModal";
+import { HomePage } from "./home";
 
-export default function Home(): JSX.Element {
-  return <ModalAmountReceive />;
+export default function App(): JSX.Element {
+  return <HomePage />;
 }

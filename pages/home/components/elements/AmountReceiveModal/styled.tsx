@@ -1,15 +1,16 @@
 import styled from "styled-components";
 
-export const WrapBodyStyled = styled.div`
+export const HomeBodyStyled = styled.div`
   width: 100%;
   position: relative;
   background-color: rgba(26, 55, 47, 0.8);
   min-height: 800px;
+  max-width:1030px
   @media only screen and (max-width: 400px) {
     min-height: 1100px;
   }
 `;
-export const WrapModalStyled = styled.div`
+export const ModalStyled = styled.div`
     max-width:855px
     position:absolute;
     background-color:#91C5B6;
@@ -18,7 +19,7 @@ export const WrapModalStyled = styled.div`
     margin:0 9%;
     border-radius: 12px;
 `;
-export const WrapHeaderStyled = styled.div`
+export const HeaderStyled = styled.div`
   width: 80.5%;
   margin: auto;
   display: flex;
