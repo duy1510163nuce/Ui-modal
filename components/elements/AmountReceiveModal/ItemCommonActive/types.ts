@@ -1,8 +1,7 @@
-export type TItemAmountReceive = {
-  isActive: boolean;
+export type TItemCommonActive = {
+  icon:string;
   labels: string[];
   money: number;
-  icon:string;
   title:string;
   description:string;
 };

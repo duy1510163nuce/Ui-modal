@@ -1,57 +1,60 @@
-import { TMoneyPlanRepositoryGetResponse } from "../../../../../repositories/ServiceAmountReceiveModal/types";
+import { TMoneyPlanRepositoryGetResponse } from "../../../../../repositories/ServiceAmountReceive/types";
 
 
-export const convertLabels = (data: TMoneyPlanRepositoryGetResponse|undefined) => {
-  if (data?.whenHeDie?.labels) {
-    const labelsWhenHeDie = data?.whenHeDie.labels;
+export const convertAmountReceive = (data: TMoneyPlanRepositoryGetResponse) => {
+ 
+  if (data.data?.whenHeDie) {
+    const labelsWhenHeDie = data?.data.whenHeDie.labels;
     labelsWhenHeDie.map((label:string, index:number) => {
-      if (label === "SurvivorsBasicPension") {
+      if (label === "survivorsBasicPension") {
         return (labelsWhenHeDie[index] = "遺族基礎年金");
       }
-      if (label === "SurvivorsWelfarePension") {
+      if (label === "survivorsWelfarePension") {
         return (labelsWhenHeDie[index] = "遺族厚生年金");
       }
     });
   }
-  if (data?.whenMedicalHigh?.labels) {
-    const labelsWhenMedicalHigh = data?.whenMedicalHigh.labels;
+  if (data.data?.whenMedicalHigh?.labels) {
+    const labelsWhenMedicalHigh = data?.data.whenMedicalHigh.labels;
     labelsWhenMedicalHigh.map((label:string, index:number) => {
-      if (label === "HighMedicalExpensesSystem") {
+      if (label === "highMedicalExpensesSystem") {
         return (labelsWhenMedicalHigh[index] = "高額療養費制度");
       }
     });
   }
-  if (data?.whenHeNotWork?.labels) {
-    const labelsWhenHeNotWork = data?.whenHeNotWork.labels;
+  if (data.data?.whenHeNotWork?.labels) {
+    const labelsWhenHeNotWork = data?.data.whenHeNotWork.labels;
     labelsWhenHeNotWork.map((label:string, index:number) => {
-      if (label === "InjuryAndSicknessAllowance") {
+      if (label === "injuryAndSicknessAllowance") {
         return (labelsWhenHeNotWork[index] = "傷病手当金");
       }
     });
   }
-  if (data?.whenInTrouble?.labels) {
-    const labelsWhenInTrouble = data?.whenInTrouble.labels;
+  if (data.data?.whenInTrouble?.labels) {
+    const labelsWhenInTrouble = data?.data.whenInTrouble.labels;
     labelsWhenInTrouble.map((label:string, index:number) => {
       if (label === "disabilityBasicPension") {
         return (labelsWhenInTrouble[index] = "障害基礎年金");
       }
-      if (label === "DisabilityWelfarePension") {
+      if (label === "disabilityWelfarePension") {
         return (labelsWhenInTrouble[index] = "障害厚生年金");
       }
     });
   }
-  if (data?.whenChildBorn?.labels) {
-    const labelsWhenChildBorn = data?.whenChildBorn.labels;
+  if (data.data?.whenChildBorn?.labels) {
+    const labelsWhenChildBorn = data?.data.whenChildBorn.labels;
     labelsWhenChildBorn.map((label:string, index:number) => {
-      if (label === "ChildbirthAndChildcareLump-SumGrant") {
+      if (label === "childbirthAndChildcareLump-SumGrant") {
         return (labelsWhenChildBorn[index] = "出産育児一時金");
       }
       if (label === "maternityAllowance") {
         return (labelsWhenChildBorn[index] = "出産手当金");
       }
-      if (label === "ChildcareLeaveBenefits") {
+      if (label === "childcareLeaveBenefits") {
         return (labelsWhenChildBorn[index] = "育児休業給付金");
       }
     });
   }
+
+  return data
 };

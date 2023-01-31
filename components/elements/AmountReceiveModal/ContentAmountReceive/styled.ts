@@ -1,6 +1,7 @@
-import styled from "styled-components";
+// import styled from "styled-components";
+import styled from "@emotion/styled";
 
-export const ContentModalStyled = styled.div`
+export const ModalBodyStyled = styled.div`
   width: 94%;
   margin: auto;
   background-color: #fff;

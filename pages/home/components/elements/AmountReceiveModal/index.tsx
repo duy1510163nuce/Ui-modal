@@ -1,36 +1,38 @@
-import {
-  ImageManStyled,
-  ImageWomanStyled,
-  TitleHeaderStyled,
-  HomeBodyStyled,
-  HeaderStyled,
-  ModalStyled,
-} from "./styled";
 
-import { useFetchData } from "./hooks";
-import { ContentAmountReceiveModal } from "../../../../../components/elements/AmountReceiveModal/ContentAmountReceiveModal";
-import { FC } from "react";
-import { TMoneyPlanRepositoryGetResponse } from "../../../../../repositories/ServiceAmountReceiveModal/types";
+import { useAmountReceive } from "./hooks";
+import { ContentAmountReceive } from "../../../../../components/elements/AmountReceiveModal/ContentAmountReceive";
+import { HeaderImgManStyled, HeaderImgWoManStyled, HeaderTitleStyled, HomeBodyStyled, ModalHeaderStyled, ModalStyled } from "./styled";
 
-const Component = (props: ReturnType<typeof useFetchData>): JSX.Element => {
-  const { dataAmountReceive } = props;
+const Component = (props: ReturnType<typeof useAmountReceive>): JSX.Element => {
+  const {} = props
+  
 
   return (
     <HomeBodyStyled>
       <ModalStyled>
-        <HeaderStyled>
-          <ImageWomanStyled alt="header-girl" src="/images/Frame 46485.png" />
-          <TitleHeaderStyled>
+        <ModalHeaderStyled>
+          <HeaderImgWoManStyled alt="header-girl" src="/images/Frame 46485.png" />
+          {/* <TextStyled
+            fontSize={"24px"}
+            fontWeight={"500"}
+            lineHeight={"24px"}
+            color={"#ffff"}
+          >
             あなたが公的保険で受け取れる金額
-          </TitleHeaderStyled>
-          <ImageManStyled alt="header-girl" src="/images/headerImageMan.png" />
-        </HeaderStyled>
-        <ContentAmountReceiveModal {...dataAmountReceive} />
+          </TextStyled> */}
+          <HeaderTitleStyled
+          >
+            あなたが公的保険で受け取れる金額
+          </HeaderTitleStyled>
+          <HeaderImgManStyled alt="header-girl" src="/images/headerImageMan.png" />
+        </ModalHeaderStyled>
+        <ContentAmountReceive {...props} />
+        
       </ModalStyled>
     </HomeBodyStyled>
   );
 };
 
-export const ModalAmountReceive:FC<TMoneyPlanRepositoryGetResponse> = (): JSX.Element => {
-  return <Component {...useFetchData()} />;
+export const ModalAmountReceive = (): JSX.Element => {
+  return <Component {...useAmountReceive()} />;
 };

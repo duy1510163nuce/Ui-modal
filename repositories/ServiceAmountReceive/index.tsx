@@ -1,4 +1,4 @@
-import { dataMock } from "./moneyPlanRepositoryMock";
+import { dataMock } from "./mock";
 import { TMoneyPlanRepositoryGetResponse } from "./types";
 
 class moneyPlanRepository {
