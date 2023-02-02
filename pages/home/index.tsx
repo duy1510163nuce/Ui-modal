@@ -1,6 +1,6 @@
 import React from "react";
-import { ModalAmountReceive } from "./components/elements/AmountReceiveModal";
-import { HomeBodyStyled } from "./components/elements/AmountReceiveModal/styled";
+import { ModalAmountReceive } from "./components/modules/AmountReceiveModal";
+
 
 export function HomePage() {
   return (
