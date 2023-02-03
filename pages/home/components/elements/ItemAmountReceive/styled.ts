@@ -19,7 +19,7 @@ export const ItemLeftStyled = styled.div`
   padding: 27px 16px;
   @media only screen and (max-width: 400px) {
     width: 100%;
-    padding: 10px 0;
+    padding: 10px 10px;
   }
 `;
 // export const AvatarStyled = styled.div`
@@ -28,33 +28,34 @@ export const ItemLeftStyled = styled.div`
 //     // margin-left: 25%;
 //   }
 // `;
-export const BoxStyled = styled.div<any>`
-  margin: ${(props) => props.margin};
-  padding: ${(props) => props.padding};
-  display: ${(props) => props.display};
-  align-items: ${(props) => props.alignItems};
-  column-gap: ${(props) => props.columnGap};
-  height: ${(props) => props.height};
-  justify-content: ${(props) => props.justifyContent};
-`;
+// export const Right = styled.div<any>`
+//   width:${(props)=>props.width};
+//   margin: ${(props) => props.margin};
+//   padding: ${(props) => props.padding};
+//   display: ${(props) => props.display};
+//   align-items: ${(props) => props.alignItems};
+//   column-gap: ${(props) => props.columnGap};
+//   height: ${(props) => props.height};
+//   justify-content: ${(props) => props.justifyContent};
+// `;
 
-export const TextStyled = styled.p((props: any) => ({
-  ...props,
-}));
+// export const TextStyled = styled.p((props: any) => ({
+//   ...props,
+// }));
 
-export const LeftTitleStyled = styled.p`
-  font-size: 19px;
-  font-weight: 500;
-  line-height: 26px;
-  white-space: pre-line;
-  @media only screen and (max-width: 821px) {
-    font-size: 13px;
-  }
-`;
+// export const LeftTitleStyled = styled.p`
+//   font-size: 19px;
+//   font-weight: 500;
+//   line-height: 26px;
+//   white-space: pre-line;
+//   @media only screen and (max-width: 821px) {
+//     font-size: 13px;
+//   }
+// `;
 
-export const ItemRightStyled = styled.div`
+export const ItemRight = styled.div<any>`
   width: 60%;
-  background-color: #91b3a9;
+  background-color: ${(props) => props.backgroundColor};
   display: flex;
   flex-direction: column;
   @media only screen and (max-width: 400px) {
@@ -62,6 +63,17 @@ export const ItemRightStyled = styled.div`
     white-space: nowrap;
   }
 `;
+// export const ItemRight = styled.div`
+//   width: 60%;
+//   background-color: #91b3a9;
+//   display: flex;
+//   flex-direction: column;
+//   @media only screen and (max-width: 400px) {
+//     width: 100%;
+//     white-space: nowrap;
+//   }
+// `;
+
 // export const BoxStyled = styled.div`
 //   padding: 13px 16px;
 // `;
@@ -71,26 +83,16 @@ export const ItemRightStyled = styled.div`
 //   align-items: center;
 //   column-gap: 7px;
 // `;
-export const WarningTitleStyled = styled.p`
-  font-size: 16px;
-  line-height: 16px;
-  font-weight: 500;
-  color: #fff;
-  @media only screen and (max-width: 400px) {
-  }
-`;
+// export const WarningTitleStyled = styled.p`
+//   font-size: 16px;
+//   line-height: 16px;
+//   font-weight: 500;
+//   color: #fff;
+//   @media only screen and (max-width: 400px) {
+//   }
+// `;
 
-export const ItemRightActiveStyled = styled.div`
-  width: 60%;
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  @media only screen and (max-width: 400px) {
-    width: 100%;
-  }
-`;
-
-export const ListLabelStyled = styled.div`
+export const ListLabel = styled.div`
   height: 50%;
   padding: 16px 0 12px 16px;
   @media only screen and (max-width: 400px) {
@@ -99,7 +101,7 @@ export const ListLabelStyled = styled.div`
   }
 `;
 
-export const LabelStyled = styled.button`
+export const Label = styled.button`
   font-size: 14px;
   font-weight: 300;
   width: 104px;
@@ -140,23 +142,23 @@ export const LabelStyled = styled.button`
 //   align-items: flex-end;
 // `;
 
-export const TypePriceStyled = styled.p`
-  font-size: 20px;
-  line-height: 20px;
-  font-weight: 700;
-  color: #ba8620;
-  @media only screen and (max-width: 821px) {
-    font-size: 10px;
-    line-height: 12px;
-  }
-`;
-export const NumberStyled = styled.p`
-  font-size: 32px;
-  line-height: 23px;
-  font-weight: 700;
-  color: #ba8620;
-  @media only screen and (max-width: 821px) {
-    font-size: 23px;
-    line-height: 20px;
-  }
-`;
+// export const TypePriceStyled = styled.p`
+//   font-size: 20px;
+//   line-height: 20px;
+//   font-weight: 700;
+//   color: #ba8620;
+//   @media only screen and (max-width: 821px) {
+//     font-size: 10px;
+//     line-height: 12px;
+//   }
+// `;
+// export const NumberStyled = styled.p`
+//   font-size: 32px;
+//   line-height: 23px;
+//   font-weight: 700;
+//   color: #ba8620;
+//   @media only screen and (max-width: 821px) {
+//     font-size: 23px;
+//     line-height: 20px;
+//   }
+// `;

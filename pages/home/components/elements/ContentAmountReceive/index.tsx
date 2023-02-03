@@ -5,7 +5,7 @@ import { WhenHeNotWork } from "../WhenHeNotWork";
 import { WhenInTrouble } from "../WhenInTrouble";
 import { WhenMedicalHigh } from "../WhenMedicalHigh";
 import { ModalBodyStyled } from "./styled";
-import { TMoneyPlanRepositoryGetResponse } from "../../../../../../repositories/ServiceAmountReceiveRepository/types";
+import { TMoneyPlanRepositoryGetResponse } from "../../../../../repositories/ServiceAmountReceiveRepository/types";
 
 
 const iconWhenHeDie = "/images/imageDie.png";

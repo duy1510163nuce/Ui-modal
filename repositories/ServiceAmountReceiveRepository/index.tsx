@@ -9,7 +9,7 @@ class MoneyPlanRepository {
     return new Promise((resolve) => {
       setTimeout(() => {
         return resolve(dataMock);
-      }, 1500);
+      }, 3500);
     });
   }
 } 

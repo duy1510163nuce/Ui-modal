@@ -28,7 +28,10 @@ export type TMoneyPlanRepositoryGetResponse = {
           labels: string[] ;
           money: number;
         };
-      }
+      
+    },
+    // isLoading: boolean
+
     // | undefined;
 };
 

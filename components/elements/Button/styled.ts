@@ -16,14 +16,15 @@ import styled from "@emotion/styled";
 // `;
 
 interface IButtonProps {
-  color: string;
-  border: string;
-  borderRadius:string
-  height: string;
-  marginLeft: string;
-  padding:string;
-  fontSize: string;
-  fontWeight:string;
+  color?: string;
+  border?: string;
+  borderRadius?:string
+  height?: string;
+  marginLeft?: string;
+  padding?:string;
+  fontSize?: string;
+  fontWeight?:string;
+  
 }
 
 export const ButtonStyled = styled.button(
